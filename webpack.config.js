@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: {
-    index: "./src/index.js",
+    index: "./src/index.tsx",
   },
 
   output: {
@@ -28,7 +28,15 @@ module.exports = {
         test: /\.css$/i, // kiểm tra với mọi file có đuôi .css
         use: ["style-loader", "css-loader"], //module loader được sử dụng, chúng được load và thực thi theo thứ tự trong mảng
       },
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
     ],
+  },
+  resolve: {
+    extensions: [".ts", ".js", ".tsx"],
   },
   devServer: {
     static: "./build",
@@ -36,4 +44,5 @@ module.exports = {
   optimization: {
     runtimeChunk: "single",
   },
+  devtool: "inline-source-map",
 };

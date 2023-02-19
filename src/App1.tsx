@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
-const App = () => {
+interface abc {
+  a: number;
+  b: string;
+}
+const AppTSX = () => {
   const [listTodo, setListTodo] = useState([]);
   useEffect(() => {
     async function gettodo() {
@@ -11,6 +15,9 @@ const App = () => {
     }
     gettodo();
   }, []);
+
+  let a: abc = { a: 1, b: "test" };
+  console.log("a interface", a);
   return (
     <div className="todo-container">
       <input type={"text"} />
@@ -24,4 +31,4 @@ const App = () => {
   );
 };
 
-// export default App;
+export default AppTSX;

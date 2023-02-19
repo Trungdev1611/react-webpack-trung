@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "outDir": "./build/",
+      "noImplicitAny": true,
+      "module": "es6",   //module format nên được sử dụng
+      "target": "es5",  //chỉ định đích đến render là es5
+      "allowJs": false,
+      "moduleResolution": "node",
+      "jsx": "react-jsx",
+      "allowSyntheticDefaultImports": true,
+      "sourceMap": true,
+    }
+  }
