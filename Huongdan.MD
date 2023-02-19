@@ -21,40 +21,40 @@ root.render(
 </React.StrictMode>
 );
 
-6. cài đặt webpack, webpack-cli(commandline) trong project: npm i -D webpack webpack-cli
-7. cài đặt loader babel để chuyển đổi code sau ES5 về ES5: npm install --save-dev babel-loader @babel/core @babel/preset-env @babel/preset-react
-8. config file .babelrc
-   {
-   "presets": [
-   "@babel/preset-env",
-   "@babel/preset-react"
-   ]
-   // ,
-   // "plugins": [
-   // "@babel/plugin-proposal-class-properties"
-   // ]
-   }
+6.  cài đặt webpack, webpack-cli(commandline) trong project: npm i -D webpack webpack-cli
+7.  cài đặt loader babel để chuyển đổi code sau ES5 về ES5: npm install --save-dev babel-loader @babel/core @babel/preset-env @babel/preset-react
+8.  config file .babelrc
+    {
+    "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+    ]
+    // ,
+    // "plugins": [
+    // "@babel/plugin-proposal-class-properties"
+    // ]
+    }
 
-9. tạo file webpack.config.js
-   const path = require("path");
-   module.exports = {
-   entry: "./src/index.js",
-   output: {
-   filename: "bundle.js",
-   path: path.resolve(\_\_dirname, "build"),
-   },
-   module: {
-   rules: [
-   {
-   test: /\.(js|jsx)$/, //những đuôi file js, jsx
-   exclude: /node_modules/,
-   use: {
-   loader: "babel-loader",
-   },
-   },
-   ],
-   },
-   };
+9.  tạo file webpack.config.js
+    const path = require("path");
+    module.exports = {
+    entry: "./src/index.js",
+    output: {
+    filename: "bundle.js",
+    path: path.resolve(\_\_dirname, "build"),
+    },
+    module: {
+    rules: [
+    {
+    test: /\.(js|jsx)$/, //những đuôi file js, jsx
+    exclude: /node_modules/,
+    use: {
+    loader: "babel-loader",
+    },
+    },
+    ],
+    },
+    };
 
 10. chạy lệnh webpack in terminal sẽ được 1 file build bundle, link script nó vào index.html, và chạy html
 11. Bây giờ ta đã có thể lên được file App.js.
@@ -70,3 +70,17 @@ root.render(
     devServer: {
     static: './build',
     },
+
+    cấu hình lại nhiều entrypoin như này
+
+        entry: {
+
+    index: "./src/index.js",
+    },
+
+output: {
+filename: "[name].bundle.js",
+path: path.resolve(\_\_dirname, "build"),
+},
+
+18. cài style-loader và css-loader để có thể sử dụng css in App

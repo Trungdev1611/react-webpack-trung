@@ -24,6 +24,10 @@ module.exports = {
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.css$/i, // kiểm tra với mọi file có đuôi .css
+        use: ["style-loader", "css-loader"], //module loader được sử dụng, chúng được load và thực thi theo thứ tự trong mảng
+      },
     ],
   },
   devServer: {
