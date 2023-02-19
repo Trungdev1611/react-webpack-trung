@@ -62,4 +62,11 @@ root.render(
 13. Sau khi cài đặt xong npm i -D html-webpack-plugin và thêm cấu hình plugin cho nó trong webpack.config thì ta chạy webpack sẽ tự động tạo file index.html cho ta
 
 14. nhưng vấn đề là plugin trên chưa tạo cho ta thẻ div với id="root". Ta có thể sử dụng 1 template như ở đây https://github.com/jantimon/html-webpack-plugin#writing-your-own-templates hoặc https://stackoverflow.com/questions/49227613/div-id-root-div-not-transfering-in-webpack-build
-    15 .tôi lựa chọn với 1 template html là src/index.html
+    15 .tôi lựa chọn với 1 template html là src/index.html với việc tạo trước 1 id root bên trong template
+15. bây giờ tôi không muốn chạy câu lệnh webpack trên cmd nữa mà thay vào đó ta sẽ cài đặt trong package.json để chạy với câu lệnh npm start trên môi trường dev và npm run build trên môi trường product
+    Để làm được vậy ta phải cài: npm install --save-dev webpack-dev-server, và sửa trong
+    Change your configuration file to tell the dev server where to look for files:
+    thêm trong file config webpack
+    devServer: {
+    static: './build',
+    },
